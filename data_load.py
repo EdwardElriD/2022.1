@@ -7,6 +7,7 @@ import numpy as np
 
 
 #########################加载数据##############################
+#数据增强
 data_transform = transforms.Compose([
     transforms.ToPILImage(),
     transforms.ColorJitter(brightness=0.5, contrast=0.5, saturation=0.5, hue=0.5),
@@ -32,7 +33,8 @@ def read_data(is_train=True):
     print(img_expend[0].shape)
     for img_name, target in csv_data.iterrows():
         targets.append(list(target))
-
+        
+#数据扩充至原来的两倍
     for index in img_expend:
         index = data_transform(index)
         index = np.array(index)
