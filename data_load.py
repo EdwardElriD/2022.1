@@ -36,11 +36,15 @@ def read_data(is_train=True):
         
 #数据扩充至原来的两倍
     for index in img_expend:
+        index = np.squeeze(index)
+        index = np.array(index)
+        index = index.astype(np.float32)
+        index = torch.tensor(index)
         index = data_transform(index)
         index = np.array(index)
         index = index.astype(np.float32)
         index = index.transpose(2, 0, 1)
-        index = torch.tensor(index)
+        index = (torch.tensor(index))
         images.append(index)
         # 这里的target包含（类别，左上角x，左上角y，右下角x，右下角y），
         # 其中所有图像都具有相同的类（索引为0）
