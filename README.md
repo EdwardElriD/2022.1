@@ -25,13 +25,18 @@ TinySSD平时作业📖
 
 7.prediction.py：定义类别和标签的预测函数，由于存在多个预测输出，需要先将预测结果压平，再连接起来
 
-8.tinySSD.py：网络模块
+8.tinySSD.py：TinySSD网络搭建
 
 9.blocks.py：定义下采样块，基础网络块，以及后续块的整合方法
 
 三、数据增强
 
 1.在data_load中进行了数据增强，对原有的数据使用了ColorJitter调整了亮度、对比度、饱和度和色调。同时扩充数据集大小至2000.
-数据增强后的测试结果如augmentation.jpg所示，较数据增强前的置信度提高了0.12,效果显著.
+数据增强后的测试结果如augmentation.jpg所示，较数据增强前的置信度（见original.jpg）提高了0.14,效果显著.
 
 
+四、注意事项
+
+1.根据实际采用CPU/GPU训练模型时需要注意调整train.py与test.py中的device参数，以匹配实际训练环境。
+
+2.当训练轮数大于十的倍数时才会保存训练权重，如epoch为20时仅保存net_10.pkl，当epoch=21时才会保存至net_20.pkl。
