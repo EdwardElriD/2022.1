@@ -47,3 +47,5 @@ typing_extensions==4.4.0
 urllib3==1.26.12
 Werkzeug==2.2.2
 zipp==3.9.0
+
+#该txt文档是在该代码运行的环境下生成的，可能存在多余的库。
